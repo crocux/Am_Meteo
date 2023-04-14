@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Am_Meteo</title>
-    <link rel="stylesheet" href="style.css">
-    
-</head>
-<body>
-    
-</body>
-<script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/73f87d51a9.js"crossorigin="anonymous">
+    </script>
+  </head>
+  <body>
+    <div class="card">
+      <div class="search">
+        <input id="searchBox" type="text" placeholder="Search by City name" spellcheck="false"/>
+        <button id="searchIcon">
+          <i class="fa-solid fa-magnifying-glass-location"></i>
+        </button>
+      </div>
+      <div>
+        <div class="wheater">
+            <img src="images/rain.png" id="weather-icon">
+            <h1 id="temp">22°C</h1>
+            <h2 id="city">checkCity</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="images/wind.png">
+                        <div>
+                            <p id="windSpeed">15km/h</p>
+                            <p>Wind Speed</p>
+                            <p id="windDirection">100deg</p>
+                            <p>Wind Direction</p>        
+                        </div>
+                </div>
+        </div>
+        <div class="Credentials">
+            <a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a>
+        </div>
+    </div>
+
+
+  </body>
+  <script src="script.js"></script>
 </html>
