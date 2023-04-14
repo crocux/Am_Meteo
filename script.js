@@ -1,7 +1,33 @@
-
+var weatherStates ={
+    clear: "clear",
+    clouds:"clouds",
+    drizzle:"drizzle",
+    fog:"humidity",
+    rain:"rain",
+    snow:"snow"
+}
 var searchBox = document.getElementById("searchBox")
 var searchIcon = document.getElementById("searchIcon")
-
+function getWState(code){
+    if(code==0){
+        return weatherStates.clear
+    }
+    else if(code==1 || code==2 || code==3){
+        return weatherStates.cloudsx
+    }
+    else if(code==51 || code==53 || code==55 || code==46 || code==57){
+        return weatherStates.drizzle
+    }
+    else if(code==45 || code==48){
+        return weatherStates.fog
+    }
+    else if(code==71 || code==73 || code==75 || code==77 || code==85 || code==86){
+        return weatherStates.snow
+    }
+    else{ 
+        return weatherStates.rain
+    }
+}
 async function superFetch(link){
     const response = await fetch(link)
     const data = await response.json()
@@ -20,7 +46,7 @@ async function getCoords(cityName){
         judet: data.results[0].admin1,
         tara: data.results[0].country,
         elevation: data.results[0].elevation,
-        nume: data.results[0].nume
+        nume: data.results[0].name
     }
     console.log(returnPackage);
     return returnPackage;    
@@ -41,10 +67,22 @@ var returnPackage = {
     windDirection:data.current_weather.winddirection
 }
 console.log(returnPackage);
+return returnPackage;
+}
+async function setPage (coords, weather){
+    const temp = document.getElementById("temp")
+    const city = document.getElementById("city")
+    const windDirection = document.getElementById("windDirection")
+    const windSpeed = document.getElementById("windSpeed")
+    const weatherIcon = document.getElementById("weather-icon")
+    temp.innerText  = Math.round(weather.temperature) + "°C"
+    city.innerHTML  = coords.nume + " <br>" + coords.judet + "<br>" + coords.tara 
+    weatherIcon.src = "images/" + getWState(weather.weatherCode) +".png"
 }
 
 async function testerSync(){
-    let coord = await getCoords("Miercurea")
-    getWeather(coord);
+    let coord = await getCoords("rio")
+    let weather = await getWeather(coord);
+    setPage(coord, weather)
 }
 testerSync()
