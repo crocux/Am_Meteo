@@ -1,15 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Am_Meteo</title>
-    <link rel="stylesheet" href="style.css">
-    
-</head>
-<body>
-    
-</body>
-<script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/73f87d51a9.js"crossorigin="anonymous">
+    </script>
+  </head>
+  <body>
+    <div class="card">
+      <div class="search">
+        <input id="searchBox" type="text" placeholder="Search by City name" spellcheck="false"/>
+        <button id="searchIcon">
+          <i class="fa-solid fa-magnifying-glass-location"></i>
+        </button>
+      </div>
+      <div>
+        <div class="wheater">
+            <img src="images/rain.png" class="weather-icon">
+            <h1 class="temp">22°C</h1>
+            <h2 class="city">checkCity</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="images/humidity.png">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div> 
+                <div class="col">
+                    <img src="images/wind.png">
+                        <div>
+                            <p class="wind">15km/h</p>
+                            <p>Wind Speed</p>        
+                        </div>
+                </div>
+                </div> 
+        </div>
+        <div class="Credentials">
+            <a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a>
+        </div>
+    </div>
+
+
+  </body>
+  <script src="script.js"></script>
 </html>
